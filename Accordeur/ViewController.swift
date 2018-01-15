@@ -56,7 +56,11 @@ class ViewController: UIViewController {
                              userInfo: nil,
                              repeats: true)
     }
-
+    
+    func compareFrequencies(referenceFrequency:Float,frequencyEmitted:Float)->Float{
+        return (referenceFrequency * frequencyEmitted)/100
+    }
+    
     @objc func updateUI() {
         if tracker.amplitude > 0.1 {
             frequencyLabel.text = String(format: "%0.1f", tracker.frequency)
