@@ -9,6 +9,7 @@
 import AudioKit
 import AudioKitUI
 import UIKit
+import SwiftySound
 
 class ViewController: UIViewController {
 
@@ -22,6 +23,7 @@ class ViewController: UIViewController {
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
 
+    @IBOutlet weak var buttonSound: UIButton!
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
     let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
     let noteNamesWithFlats = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"]
@@ -56,7 +58,10 @@ class ViewController: UIViewController {
                              userInfo: nil,
                              repeats: true)
     }
-
+    @IBAction func playsound(_ sender: UIButton) {
+        Sound.play()
+    }
+    
     @objc func updateUI() {
         if tracker.amplitude > 0.1 {
             frequencyLabel.text = String(format: "%0.1f", tracker.frequency)
@@ -84,5 +89,9 @@ class ViewController: UIViewController {
             noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
         amplitudeLabel.text = String(format: "%0.2f", tracker.amplitude)
+    }
+    
+    func playsound(butt: UIButton) {
+        
     }
 }

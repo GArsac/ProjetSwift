@@ -7,4 +7,5 @@ target 'Accordeur' do
 
   # Pods for Accordeur
 pod ‘AudioKit’, ‘~> 4.0’
+pod 'SwiftySound'
 end
