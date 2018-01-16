@@ -11,6 +11,7 @@ import AudioKitUI
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     @IBOutlet private var frequencyLabel: UILabel!
     @IBOutlet private var amplitudeLabel: UILabel!
@@ -88,5 +89,14 @@ class ViewController: UIViewController {
             noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
         amplitudeLabel.text = String(format: "%0.2f", tracker.amplitude)
+    }
+    
+    @IBOutlet weak var Aiguille: UIImageView!
+    
+    func rotate(_ degrees : Float){
+        
+        UIView.animate(withDuration: 1.0, animations: {
+            self.Aiguille.transform = CGAffineTransform(rotationAngle: CGFloat(degrees))
+            })
     }
 }
