@@ -59,13 +59,27 @@ class ViewController: UIViewController {
     }
     
     func compareFrequencies(referenceFrequency:Float,frequencyEmitted:Float)->Float{
-        return (referenceFrequency * frequencyEmitted)/100
+        var difference :Float = (referenceFrequency * frequencyEmitted)/100
+        var angle :Float = 0
+        if difference > 100 {
+            angle = 180
+        }
+        if difference > 90 {
+            angle = 120
+        }
+        if difference == 90 {
+            angle = 90
+        }
+        if difference == 90{
+            angle = 40
+        }
+        return angle
     }
     
     @objc func updateUI() {
         if tracker.amplitude > 0.1 {
             frequencyLabel.text = String(format: "%0.1f", tracker.frequency)
-
+            
             var frequency = Float(tracker.frequency)
             while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
                 frequency /= 2.0
@@ -89,6 +103,7 @@ class ViewController: UIViewController {
             noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
         }
         amplitudeLabel.text = String(format: "%0.2f", tracker.amplitude)
+        rotate(compareFrequencies(referenceFrequency: 10, frequencyEmitted: Float(tracker.frequency)))
     }
     
     @IBOutlet weak var Aiguille: UIImageView!
