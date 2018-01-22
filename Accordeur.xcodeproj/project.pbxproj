@@ -15,6 +15,7 @@
 		8B83A7C9200373FE00B971B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B83A7C8200373FE00B971B3 /* Assets.xcassets */; };
 		8B83A7CC200373FE00B971B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B83A7CA200373FE00B971B3 /* LaunchScreen.storyboard */; };
 		8B88AC902015DD61001D736F /* Tunning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B88AC8F2015DD61001D736F /* Tunning.swift */; };
+		8BA925A52015E67900550A38 /* corde.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA925A42015E67900550A38 /* corde.png */; };
 		94CAF68B5D53E2699A6DD246 /* Pods_Accordeur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E6D0F0C082219B79E793829 /* Pods_Accordeur.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		8B83A7CB200373FE00B971B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B83A7CD200373FE00B971B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B88AC8F2015DD61001D736F /* Tunning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tunning.swift; sourceTree = "<group>"; };
+		8BA925A42015E67900550A38 /* corde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corde.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		8B7A8D24200CA67100B65906 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8BA925A42015E67900550A38 /* corde.png */,
 				8B7A8D27200CA6A500B65906 /* Background.png */,
 				8B7A8D25200CA69D00B65906 /* Knob.png */,
 			);
@@ -170,6 +173,7 @@
 				8B83A7CC200373FE00B971B3 /* LaunchScreen.storyboard in Resources */,
 				8B7A8D26200CA69D00B65906 /* Knob.png in Resources */,
 				8B7A8D28200CA6A500B65906 /* Background.png in Resources */,
+				8BA925A52015E67900550A38 /* corde.png in Resources */,
 				8B83A7C9200373FE00B971B3 /* Assets.xcassets in Resources */,
 				8B83A7C7200373FE00B971B3 /* Main.storyboard in Resources */,
 			);
