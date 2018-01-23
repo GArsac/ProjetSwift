@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Tuning {
+class Tunning {
     
     init(pTuning: [String: Double]) {
         Tuning = ["E2" : 82.41,

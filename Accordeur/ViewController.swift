@@ -13,8 +13,8 @@ import UIKit
 class ViewController: UIViewController {
     
 
-    @IBOutlet private var frequencyLabel: UILabel!
-    @IBOutlet private var amplitudeLabel: UILabel!
+    @IBOutlet private var noteChoice: UIPickerView!
+    @IBOutlet private var accordChoice: UIPickerView!
     @IBOutlet private var noteNameWithSharpsLabel: UILabel!
     @IBOutlet private var noteNameWithFlatsLabel: UILabel!
     @IBOutlet private var audioInputPlot: EZAudioPlot!
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
 
         AudioKit.output = silence
         AudioKit.start()
-        setupPlot()
+        //setupPlot()
         Timer.scheduledTimer(timeInterval: 0.1,
                              target: self,
                              selector: #selector(ViewController.updateUI),
@@ -59,53 +59,28 @@ class ViewController: UIViewController {
     }
     
     func compareFrequencies(referenceFrequency:Float,frequencyEmitted:Float)->Float{
-        var difference :Float = (referenceFrequency * frequencyEmitted)/100
+        var difference :Float = (100 * frequencyEmitted)/referenceFrequency
         var angle :Float = 0
         if difference > 100 {
-            angle = 180
+            angle = -90
         }
         if difference > 90 {
-            angle = 120
+            angle = -120
         }
         if difference == 90 {
-            angle = 90
+            angle = 0
         }
         if difference == 90{
-            angle = 40
+            angle = 90
         }
         return angle
     }
     
     @objc func updateUI() {
-        if tracker.amplitude > 0.1 {
-            frequencyLabel.text = String(format: "%0.1f", tracker.frequency)
-            
-            var frequency = Float(tracker.frequency)
-            while frequency > Float(noteFrequencies[noteFrequencies.count - 1]) {
-                frequency /= 2.0
-            }
-            while frequency < Float(noteFrequencies[0]) {
-                frequency *= 2.0
-            }
-
-            var minDistance: Float = 10_000.0
-            var index = 0
-
-            for i in 0..<noteFrequencies.count {
-                let distance = fabsf(Float(noteFrequencies[i]) - frequency)
-                if distance < minDistance {
-                    index = i
-                    minDistance = distance
-                }
-            }
-            let octave = Int(log2f(Float(tracker.frequency) / frequency))
-            noteNameWithSharpsLabel.text = "\(noteNamesWithSharps[index])\(octave)"
-            noteNameWithFlatsLabel.text = "\(noteNamesWithFlats[index])\(octave)"
-        }
-        amplitudeLabel.text = String(format: "%0.2f", tracker.amplitude)
-        rotate(compareFrequencies(referenceFrequency: 10, frequencyEmitted: Float(tracker.frequency)))
+        rotate(compareFrequencies(referenceFrequency: 30000, frequencyEmitted: Float(tracker.frequency)))
     }
     
+    /*Début partie rotation aiguille*/
     @IBOutlet weak var Aiguille: UIImageView!
     
     func rotate(_ degrees : Float){
@@ -114,4 +89,5 @@ class ViewController: UIViewController {
             self.Aiguille.transform = CGAffineTransform(rotationAngle: CGFloat(degrees))
             })
     }
+    /*Fin partie rotation aiguille*/
 }
