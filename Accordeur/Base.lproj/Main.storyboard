@@ -38,11 +38,7 @@
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Knob.png" translatesAutoresizingMaskIntoConstraints="NO" id="GMU-Uy-6rW">
-                                <rect key="frame" x="172" y="69" width="31" height="184"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="bVx-C3-2Yd">
-                                <rect key="frame" x="0.0" y="6" width="375" height="311"/>
+                                <rect key="frame" x="172" y="75" width="21" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqB-zv-XRd">
@@ -126,6 +122,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="bVx-C3-2Yd">
+                                <rect key="frame" x="22" y="12" width="279" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -145,14 +145,14 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Aiguille" destination="GMU-Uy-6rW" id="cK0-jI-qty"/>
-                        <outlet property="accordChoice" destination="KPd-Ty-GFI" id="2yf-b0-t4q"/>
+                        <outlet property="accordChoice" destination="KPd-Ty-GFI" id="bQP-bz-fSh"/>
                         <outlet property="audioInputPlot" destination="EaM-zb-3c9" id="1jz-6A-QQ8"/>
-                        <outlet property="noteChoice" destination="VZ2-TS-CRA" id="aHY-Ll-fGi"/>
+                        <outlet property="noteChoice" destination="VZ2-TS-CRA" id="aow-Am-eja"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517.60000000000002" y="163.26836581709148"/>
+            <point key="canvasLocation" x="517.5" y="162.5"/>
         </scene>
     </scenes>
     <resources>
