@@ -10,22 +10,26 @@ import AudioKit
 import AudioKitUI
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
+class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     @IBOutlet private var noteChoice: UIPickerView!
     @IBOutlet private var accordChoice: UIPickerView!
     @IBOutlet private var audioInputPlot: EZAudioPlot!
-
+    
+    @IBAction func produceSound(_ sender: Any) {
+        
+    }
+    let listeAccords:[String] = ["E3 A2 E2 G3 B3 E4","C#3 G#2 D#2 F#3 A#3 D#4","D2 A2 E2 G3 B3 E4","D2 G2 C3 F3 A3 D4"]
+    let listNotes:[String] = ["E3","A2","E2","G3","B3","E4","C#3","C#3","G#2","D#2","F#3","A#3","D#4","D2","A2","E2","G3","B3","E4","D2","G2","C3","F3","A3","D4"]
     var mic: AKMicrophone!
     var tracker: AKFrequencyTracker!
     var silence: AKBooster!
-    var referenceFrequencyChosen = 40000
+    var listeNote : [String] = []
+    var referenceFrequencyChosen : Double = 110
     let noteFrequencies = [16.35, 17.32, 18.35, 19.45, 20.6, 21.83, 23.12, 24.5, 25.96, 27.5, 29.14, 30.87]
     let noteNamesWithSharps = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"]
     let noteNamesWithFlats = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"]
-
+    var valueToProduce : String = ""
     func setupPlot() {
         let plot = AKNodeOutputPlot(mic, frame: audioInputPlot.bounds)
         plot.plotType = .rolling
@@ -43,11 +47,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         silence = AKBooster(tracker, gain: 0)
         //Préparer les pickersView
         //Pour les notes
-        self.noteChoice.delegate = self
-        self.noteChoice.dataSource = self
+        noteChoice.delegate = self
+        noteChoice.dataSource = self
         //Pour les accords
-        self.accordChoice.delegate = self
-        self.accordChoice.dataSource = self
+        accordChoice.delegate = self
+        accordChoice.dataSource = self
     }
 	
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +67,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     /*Fonction comparant la fréquence reçue par le smartphone par rapport à la fréquence de référence*/
     func compareFrequencies(referenceFrequency:Float,frequencyEmitted:Float)->Float{
+        print("Fréquence de référence: \(referenceFrequency)")
         let difference :Float = (100 * frequencyEmitted)/referenceFrequency
         var angle :Float = 0
         if difference > 100 {
@@ -81,42 +86,42 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     /*Met à jour l'aiguille*/
     @objc func updateUI() {
-        print("Fréquence : \(tracker.frequency)")
+        //print("Fréquence : \(tracker.frequency)")
         rotate(compareFrequencies(referenceFrequency: Float(referenceFrequencyChosen), frequencyEmitted: Float(tracker.frequency)))
     }
     
     /*Début partie sélection note et accord*/
+    
+    /****************/
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    /*Renvoie le nombre de lignes*/
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        var valueNumberRows = noteNamesWithSharps.count
-        if pickerView == noteChoice {
-            valueNumberRows = 6
-        }
-        return valueNumberRows
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
     }
     
-    // The data to return for the row and component (column) that's being passed in
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        var data = noteNamesWithSharps[row]
-        if pickerView == noteChoice{
-            data = noteNamesWithFlats[row]
-        }
-        print("Data: \(data)")
-        return data
-    }
-    /*Renvoie la ligne choisie*/
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView( _ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == noteChoice {
-            //TODO: Change la fréquence de référence pour la comparaison
-            //(cf avec Guillaume pour utiliser sa classe et les fonctions)
+            return listNotes.count
         }
-        if pickerView == accordChoice {
-            //TODO:Faire la recherche et lié les boutons lançant les sons des cordes de la Guitare
-        }
+        return listeAccords.count
     }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        //self.noteChoice.reloadAllComponents()
+        if pickerView == noteChoice {
+            return listNotes[row]
+        }
+        return listeAccords[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //let value = listeAccords[row]
+        //print(listNotes[row])
+        
+        referenceFrequencyChosen = Tuning.getNoteFrequV2(pNote:listNotes[row])
+        self.valueToProduce = listNotes[row]
+    }
+    /*******************/
     /*Fin partie sélection note et accord */
     
     /*Début partie rotation aiguille*/
