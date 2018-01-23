@@ -9,6 +9,7 @@
 import AudioKit
 import AudioKitUI
 import UIKit
+import SwiftySound
 
 class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
@@ -17,6 +18,9 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     @IBOutlet private var audioInputPlot: EZAudioPlot!
     
     @IBAction func produceSound(_ sender: Any) {
+        print("Produit un son")
+        print("Note à reproduire : \(valueToProduce)")
+        Sound.play(file: "\(valueToProduce).wav")
         
     }
     let listeAccords:[String] = ["E3 A2 E2 G3 B3 E4","C#3 G#2 D#2 F#3 A#3 D#4","D2 A2 E2 G3 B3 E4","D2 G2 C3 F3 A3 D4"]
