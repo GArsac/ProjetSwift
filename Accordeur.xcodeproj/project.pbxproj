@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B6E4EA3200C9D5E00D41554 /* Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6E4EA2200C9D5E00D41554 /* Tuning.swift */; };
 		8B7A8D26200CA69D00B65906 /* Knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A8D25200CA69D00B65906 /* Knob.png */; };
 		8B7A8D28200CA6A500B65906 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7A8D27200CA6A500B65906 /* Background.png */; };
-		8B6E4EA3200C9D5E00D41554 /* Tuning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6E4EA2200C9D5E00D41554 /* Tuning.swift */; };
 		8B83A7C2200373FE00B971B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B83A7C1200373FE00B971B3 /* AppDelegate.swift */; };
 		8B83A7C4200373FE00B971B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B83A7C3200373FE00B971B3 /* ViewController.swift */; };
 		8B83A7C7200373FE00B971B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B83A7C5200373FE00B971B3 /* Main.storyboard */; };
@@ -24,9 +24,9 @@
 		535F9EFE5C3C712993159754 /* Pods-Accordeur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Accordeur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Accordeur/Pods-Accordeur.debug.xcconfig"; sourceTree = "<group>"; };
 		5569007141189C7DFFB1DCCF /* Pods-Accordeur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Accordeur.release.xcconfig"; path = "Pods/Target Support Files/Pods-Accordeur/Pods-Accordeur.release.xcconfig"; sourceTree = "<group>"; };
 		6E6D0F0C082219B79E793829 /* Pods_Accordeur.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Accordeur.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B6E4EA2200C9D5E00D41554 /* Tuning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuning.swift; sourceTree = "<group>"; };
 		8B7A8D25200CA69D00B65906 /* Knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Knob.png; sourceTree = "<group>"; };
 		8B7A8D27200CA6A500B65906 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
-		8B6E4EA2200C9D5E00D41554 /* Tuning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuning.swift; sourceTree = "<group>"; };
 		8B83A7BE200373FE00B971B3 /* Accordeur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Accordeur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B83A7C1200373FE00B971B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B83A7C3200373FE00B971B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };

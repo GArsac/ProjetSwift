@@ -66,16 +66,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let difference :Float = (100 * frequencyEmitted)/referenceFrequency
         var angle :Float = 0
         if difference > 100 {
-            angle = -90
+            angle = 90
         }
         if difference > 90 {
-            angle = -120
+            angle = 120
         }
         if difference == 90 {
             angle = 0
         }
-        if difference == 90{
-            angle = 90
+        if difference < 20{
+            angle = -90
         }
         return angle
     }
