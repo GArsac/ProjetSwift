@@ -51,6 +51,8 @@ class Tuning {
     }
     
     static func getNoteFrequV2(pNote: String) -> Double {
+        print("La note")
+        print(pNote)
         let pNotelol = " " + pNote
         let pNotelol2 = pNote
         let lolenculé = pNote.endIndex
